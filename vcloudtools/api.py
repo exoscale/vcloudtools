@@ -36,7 +36,9 @@ class VCloudAPIClient(object):
         Create a new instance of the vCloud API client, optionally specifying the API root URL
         """
 
-        self._session = requests.Session(headers={'accept': VCLOUD_MIME})
+        #self._session = requests.Session(headers={'accept': VCLOUD_MIME})
+        self._session = requests.Session()
+        self._session.headers={'accept': VCLOUD_MIME}
         self.token = envget('auth_token')
 
         if root is not None:
